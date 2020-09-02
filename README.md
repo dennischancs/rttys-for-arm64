@@ -59,7 +59,7 @@ also:
 
 sudo rtty \
    -I 'My-device-ID' \ # client
-   -t server_token # server token
+   -t 'server_token' # server token
    -a -v -d 'My Device Description' \ # optional
 ```
 
@@ -72,6 +72,35 @@ sudo rtty \
 
     - `rtty -R` : Transfer file from local to remote device
     - `rtty -S test.txt` : Transfer file from remote device to the local
+
+
+**client start on boot:**
+run the shell on every device 
+
+```bash
+cd /etc/systemd/system # your_systemd_path
+
+cat > rtty.service <<EOF
+[Unit]
+Description=rtty
+After=network.target
+
+[Service]
+ExecStart=/opt/bin/rtty -I 'My-device-ID' -t 'server_token'
+TimeoutStopSec=5s
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable rtty
+sudo systemctl start rtty
+
+# optional
+#sudo systemctl status rtty # status
+#sudo systemctl stop rtty # stop
+```
 
 
 ## Build libev
