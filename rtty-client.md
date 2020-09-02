@@ -2,14 +2,25 @@ rtty client for arm64
 
 [zhaojh329/rtty: Access your terminal from anywhere via the web.](https://github.com/zhaojh329/rtty)
 
-Replace the following parameters with your own parameters
+**client start:**
 
-sudo rtty -I 'My-device-ID' -h 'your-server' -p 5912 -a -v -d 'My Device Description'
+```bash
+sudo rtty \
+   -I 'My-device-ID' \ # client
+   -h 'your-server' \ # server ip or domain
+   -p 5912 \ # server port
+   -a -v -d 'My Device Description' \ # optional
 
-If your rttys is configured with a token, add the following parameter(Replace the following token with your own)
+also:
 
--t 34762d07637276694b938d23f10d7164
+sudo rtty \
+   -I 'My-device-ID' \ # client
+   -t server_token # server token
+   -a -v -d 'My Device Description' \ # optional
+```
 
+**service manage:**
+http://your-server-host:5913
 
 # Build libev
 
