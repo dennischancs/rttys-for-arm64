@@ -52,15 +52,11 @@ More details: [zhaojh329/rttys](https://github.com/zhaojh329/rttys/issues)
 sudo rtty \
    -I 'My-device-ID' \ # client
    -h 'your-server' \ # server ip or domain
-   -p 5912 \ # server port
-   -a -v -d 'My Device Description' \ # optional
-
-also:
-
-sudo rtty \
-   -I 'My-device-ID' \ # client
-   -t 'server_token' # server token
-   -a -v -d 'My Device Description' \ # optional
+   -p 5912 \ # server port [add device]
+   -t 'server_token' \ # optional server token
+   -a \
+   -v \
+   -d 'My Device Description' # optional
 ```
 
 **service manage:**
