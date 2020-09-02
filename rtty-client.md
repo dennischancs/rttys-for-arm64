@@ -20,7 +20,15 @@ sudo rtty \
 ```
 
 **service manage:**
-http://your-server-host:5913
+1. via http://your-server-host:5913 and login
+
+2. click the Connection button to use the web shell like SSH
+
+3. Transfer files is easy:
+
+    - `rtty -R` : Transfer file from local to remote device
+    - `rtty -S test.txt` : Transfer file from remote device to the local
+
 
 # Build libev
 
