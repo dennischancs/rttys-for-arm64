@@ -8,6 +8,8 @@ docker run -d \
    -p 5912:5912 \
    -p 5913:5913 \
    -v ~/.config/rttys.conf:/etc/rttys/rttys.conf \
+   -v /etc/rttys/rttys.crt:/etc/rttys/rttys.crt \
+   -v /etc/rttys/rttys.key:/etc/rttys/rttys.key \
    --restart=always \
    dennischancs/rttys
 ```
