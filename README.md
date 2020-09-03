@@ -53,7 +53,7 @@ sudo rtty \
    -I 'My-device-ID' \ # client
    -h 'your-server' \ # server ip or domain
    -p 5912 \ # server port [add device]
-   -t 'server_token' \ # optional server token
+   -t server_token \ # optional server token
    -a \
    -v \
    -d 'My Device Description' # optional
@@ -82,8 +82,16 @@ Description=rtty
 After=network.target
 
 [Service]
-ExecStart=/opt/bin/rtty -I 'My-device-ID' -t 'server_token'
+User=root
+ExecStart=/opt/bin/rtty \
+              -I 'My-device-ID' \
+              -h 'server_ip' \
+              -p 5912 \
+              -d 'description' \
+              -a -v \
+              -t 'server_token' # [optional] it may cause `register fail: Invalid token` bug
 TimeoutStopSec=5s
+Restart=on-abnormal
 
 [Install]
 WantedBy=multi-user.target
