@@ -7,7 +7,6 @@ RUN cd /build && \
     wget -O rttys-master.zip https://raw.githubusercontent.com/dennischancs/rttys-for-arm64/master/selfuse/rttys-master.zip && \
     # cp -f index.html rttys/frontend/public/ && \
     unzip rttys-master.zip && \
-    cd rttys-master && \
     # cp -f statik.go rttys/statik/ && \
     cd rttys-master && go build
 
