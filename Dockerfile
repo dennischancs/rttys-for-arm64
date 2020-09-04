@@ -1,10 +1,11 @@
 FROM golang:alpine as builder
 WORKDIR /build
-RUN apk update && apk add --no-cache git wget && \
+RUN cd /build && \
+    apk update && apk add --no-cache git wget && \
     git clone https://github.com/zhaojh329/rttys.git && \
     wget -O index.html https://raw.githubusercontent.com/dennischancs/rttys-for-arm64/master/index.html && \
     cp -f index.html rttys/frontend/public/ && \
-    go build
+    cd rttys && go build
 
 FROM alpine:edge
 # for arm64
