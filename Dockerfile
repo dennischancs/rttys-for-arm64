@@ -4,7 +4,7 @@ RUN cd /build && \
     apk update && apk add --no-cache wget && \
     #git clone https://github.com/zhaojh329/rttys.git && \
     #wget -O index.html https://raw.githubusercontent.com/dennischancs/rttys-for-arm64/master/index.html && \
-    wget -O statik.go https://raw.githubusercontent.com/dennischancs/rttys-for-arm64/master/selfuse/rttys-master.zip && \
+    wget -O rttys-master.zip https://raw.githubusercontent.com/dennischancs/rttys-for-arm64/master/selfuse/rttys-master.zip && \
     # cp -f index.html rttys/frontend/public/ && \
     unzip rttys-master.zip && \
     cd rttys-master && \
